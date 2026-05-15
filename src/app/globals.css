@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+:root {
+  --background: #363732;
+  --foreground: #dce1e9;
+  --aqua: #53d8fb;
+  --maya: #66c3ff;
+  --panel: rgba(220, 225, 233, 0.075);
+  --panel-strong: rgba(220, 225, 233, 0.12);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-aqua: var(--aqua);
+  --color-maya: var(--maya);
+  --font-sans: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono", "Geist Mono Fallback", ui-monospace, monospace;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+body::before {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  content: "";
+  background:
+    radial-gradient(ellipse at 18% 0%, rgba(83, 216, 251, 0.2), transparent 34rem),
+    radial-gradient(ellipse at 78% 18%, rgba(102, 195, 255, 0.16), transparent 30rem),
+    linear-gradient(180deg, #363732 0%, #2f302c 52%, #363732 100%);
+}
+
+body::after {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  content: "";
+  opacity: 0.19;
+  background-image:
+    linear-gradient(rgba(220, 225, 233, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(220, 225, 233, 0.045) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: linear-gradient(to bottom, black, transparent 78%);
+}
+
+::selection {
+  background: rgba(83, 216, 251, 0.32);
+  color: #ffffff;
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
