@@ -22,8 +22,8 @@ import {
   traits,
 } from "@/lib/portfolio-data";
 
-const sectionIntroClass =
-  "font-mono text-xs font-semibold uppercase tracking-[0.22em] text-aqua";
+const sectionLabelClass =
+  "inline-flex w-fit items-center gap-2 rounded-full border border-aqua/20 bg-aqua/[0.07] px-3 py-1.5 text-sm font-semibold text-aqua shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]";
 
 const panelClass =
   "rounded-[2rem] border border-white/10 bg-white/[0.07] shadow-[inset_0_1px_0_rgba(255,255,255,0.11),0_24px_80px_-44px_rgba(83,216,251,0.48)] backdrop-blur-xl";
@@ -39,7 +39,10 @@ function SectionHeading({
 }) {
   return (
     <div className="mx-auto mb-10 max-w-7xl px-5 sm:px-6 lg:px-8">
-      <p className={sectionIntroClass}>{label}</p>
+      <p className={sectionLabelClass}>
+        <span className="size-1.5 rounded-full bg-aqua" aria-hidden="true" />
+        {label}
+      </p>
       <div className="mt-4 grid gap-5 lg:grid-cols-[0.95fr_1fr] lg:items-end">
         <h2 className="max-w-4xl text-4xl font-semibold leading-[0.98] tracking-tight text-white sm:text-5xl lg:text-6xl">
           {title}
@@ -110,14 +113,21 @@ export default function Home() {
 
       <section id="top" className="relative mx-auto grid min-h-[calc(100dvh-4rem)] max-w-7xl gap-10 px-5 py-10 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:px-8 lg:py-12">
         <MotionShell>
-          <p className={sectionIntroClass}>
-            Founder · Operator · AI Workflow Builder · Homeschool Mom · KC-Based
-          </p>
-          <h1 className="mt-5 max-w-5xl text-5xl font-semibold leading-[0.94] tracking-tight text-white sm:text-6xl lg:text-[4.25rem] xl:text-[5rem]">
+          <div className="flex max-w-2xl flex-wrap gap-2">
+            {["Founder", "Operator", "AI workflow builder", "Homeschool mom", "KC-based"].map((item) => (
+              <span
+                key={item}
+                className="rounded-full border border-white/10 bg-white/[0.06] px-3 py-1.5 text-sm font-semibold text-[#DCE1E9]/82"
+              >
+                {item}
+              </span>
+            ))}
+          </div>
+          <h1 className="mt-6 max-w-4xl text-4xl font-semibold leading-[0.96] tracking-tight text-white sm:text-5xl lg:text-[3.7rem] xl:text-[4.25rem]">
             I build systems, write sharp things, and use AI to make my brain less of a crime scene.
           </h1>
           <p className="mt-7 max-w-2xl text-lg leading-8 text-[#DCE1E9]/78 sm:text-xl">
-            I&apos;m Shelby DuBois, founder of DewBwah. I build websites, workflows, AI-assisted systems, homeschool plans, marketing strategies, and blunt internet thoughts for people who are tired of vague advice and prettier versions of broken things.
+            I got tired of trying to write across a million platforms, so I built my own corner of the internet. This is where I can brain dump what I&apos;m building, what I&apos;m learning, what I&apos;m mad about, and the things I can&apos;t stop caring about.
           </p>
           <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <GlassLink href="#builds" primary>
@@ -134,12 +144,12 @@ export default function Home() {
             <div className="relative rounded-[1.55rem] border border-white/10 bg-[#2d2f2c]/88 p-4 sm:p-5">
               <div className="flex items-center justify-between gap-4 border-b border-white/10 pb-4">
                 <div>
-                  <p className="font-mono text-[0.65rem] uppercase tracking-[0.24em] text-aqua">Command center</p>
+                  <p className="text-sm font-semibold text-aqua">Command center</p>
                   <h2 className="mt-1 text-xl font-semibold text-white">Shelby OS</h2>
                 </div>
-                <div className="flex items-center gap-2 rounded-full border border-aqua/25 bg-aqua/10 px-3 py-1.5 font-mono text-[0.68rem] text-aqua">
+                <div className="flex items-center gap-2 rounded-full border border-aqua/25 bg-aqua/10 px-3 py-1.5 text-xs font-semibold text-aqua">
                   <span className="size-2 rounded-full bg-aqua" />
-                  LIVE
+                  Live
                 </div>
               </div>
 
@@ -151,7 +161,7 @@ export default function Home() {
                   >
                     <div className="flex items-center justify-between gap-4">
                       <CircleDot className="size-4 text-aqua" aria-hidden="true" />
-                      <span className="font-mono text-[0.64rem] text-[#DCE1E9]/42">
+                      <span className="text-xs font-semibold text-[#DCE1E9]/42">
                         0{index + 1}
                       </span>
                     </div>
@@ -161,7 +171,7 @@ export default function Home() {
               </div>
 
               <div className="mt-4 rounded-3xl border border-aqua/20 bg-aqua/[0.08] p-4">
-                <p className="font-mono text-[0.66rem] uppercase tracking-[0.24em] text-aqua">Currently using</p>
+                <p className="text-sm font-semibold text-aqua">Currently using</p>
                 <div className="mt-3 flex flex-wrap gap-2">
                   {currentTools.map((tool) => (
                     <span key={tool} className="rounded-full border border-white/10 bg-white/[0.08] px-3 py-1.5 text-xs font-medium text-[#DCE1E9]">
@@ -181,7 +191,7 @@ export default function Home() {
             I run DewBwah, a marketing agency for contractors, remodelers, builders, home service businesses, and local companies.
           </p>
           <p className="mt-4">
-            But this site is bigger than the agency. I&apos;m a founder, operator, writer, homeschool mom, AI workflow builder, and professional translator of “why is this not working?” into actual next steps.
+            But this site is bigger than the agency. I&apos;m a founder, operator, writer, homeschool mom, AI workflow builder, and professional translator of “why isn&apos;t this working?” into actual next steps.
           </p>
           <p className="mt-4">
             I care about useful work: fast websites, clear writing, local visibility, practical AI, better systems, stronger thinking, and tools that make life less feral instead of adding another login to babysit.
@@ -210,7 +220,9 @@ export default function Home() {
               <MotionShell key={build.title} delay={index * 0.035} className={`${panelClass} group min-h-64 p-6 transition duration-300 hover:-translate-y-1 hover:border-aqua/35`}>
                 <div className="flex items-start justify-between gap-4">
                   <Icon className="size-6 text-aqua" aria-hidden="true" />
-                  <span className="font-mono text-xs text-[#DCE1E9]/38">BUILD 0{index + 1}</span>
+                  <span className="rounded-full border border-white/10 bg-white/[0.06] px-3 py-1 text-xs font-semibold text-[#DCE1E9]/58">
+                    Build 0{index + 1}
+                  </span>
                 </div>
                 <h3 className="mt-10 text-2xl font-semibold tracking-tight text-white">{build.title}</h3>
                 <p className="mt-4 max-w-2xl text-sm leading-7 text-[#DCE1E9]/76">{build.body}</p>
@@ -226,7 +238,9 @@ export default function Home() {
           <div className={`${panelClass} grid gap-px overflow-hidden bg-white/10 md:grid-cols-2`}>
             {beliefs.map((belief, index) => (
               <MotionShell key={belief} delay={index * 0.02} className="bg-[#363732]/86 p-5 sm:p-6">
-                <p className="font-mono text-xs text-aqua">0{index + 1}</p>
+                <p className="inline-flex size-8 items-center justify-center rounded-full border border-aqua/20 bg-aqua/10 text-sm font-semibold text-aqua">
+                  {index + 1}
+                </p>
                 <p className="mt-6 text-lg font-semibold leading-7 text-white">{belief}</p>
               </MotionShell>
             ))}
@@ -242,7 +256,7 @@ export default function Home() {
             return (
               <MotionShell key={item.title} delay={index * 0.035} className={`${panelClass} p-6 transition duration-300 hover:-translate-y-1 hover:border-aqua/35 ${index === 0 || index === 5 ? "lg:row-span-2" : ""}`}>
                 <div className="flex items-center justify-between gap-4">
-                  <span className="font-mono text-[0.68rem] uppercase tracking-[0.2em] text-aqua">{item.category}</span>
+                  <span className="rounded-full border border-aqua/20 bg-aqua/[0.08] px-3 py-1.5 text-xs font-semibold text-aqua">{item.category}</span>
                   <Icon className="size-5 text-aqua" aria-hidden="true" />
                 </div>
                 <h3 className="mt-8 text-2xl font-semibold tracking-tight text-white">{item.title}</h3>
@@ -315,7 +329,7 @@ export default function Home() {
                 <span className="rounded-full border border-aqua/24 bg-aqua/10 px-3 py-1.5 text-xs font-semibold text-aqua">
                   {article.category}
                 </span>
-                <span className="font-mono text-xs text-[#DCE1E9]/50">{article.readTime}</span>
+                <span className="text-xs font-semibold text-[#DCE1E9]/55">{article.readTime}</span>
               </div>
               <h3 className="mt-9 text-xl font-semibold leading-7 tracking-tight text-white">{article.title}</h3>
               <p className="mt-4 text-sm leading-6 text-[#DCE1E9]/75">{article.excerpt}</p>
@@ -332,7 +346,10 @@ export default function Home() {
         <div className={`${panelClass} mx-auto max-w-7xl overflow-hidden p-6 sm:p-8 lg:p-10`}>
           <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
             <div>
-              <p className={sectionIntroClass}>08 - Contact</p>
+              <p className={sectionLabelClass}>
+                <span className="size-1.5 rounded-full bg-aqua" aria-hidden="true" />
+                08 - Contact
+              </p>
               <h2 className="mt-4 text-5xl font-semibold leading-none tracking-tight text-white sm:text-6xl">
                 Send the thing.
               </h2>

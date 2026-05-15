@@ -73,6 +73,11 @@ export const traits = [
     body: "If the tool becomes homework, I fire it.",
     icon: Wrench,
   },
+  {
+    title: "Subcontractor scar tissue",
+    body: "I'm fucking sick of subs who sell confidence, cost thousands, and leave someone else holding the broken project. If you're going to touch the work, be good at the work.",
+    icon: Wrench,
+  },
 ];
 
 export const builds = [
@@ -113,8 +118,8 @@ export const beliefs = [
   "AI is useful when it gets work done, not when it makes prettier task lists.",
   "A website should explain, rank, load fast, build trust, and make the next step obvious.",
   "Local businesses need clarity before they need more content.",
-  "If the work cannot survive outside your head, you do not have a system yet.",
-  "Homeschooling should teach kids how the world actually works.",
+  "If the work can't survive outside your head, you don't have a system yet.",
+  "Homeschooling should teach kids how the world actually works. Not how to ask to go pee.",
   "Writing online should sound like a human had a pulse while typing it.",
   "Tools are only useful if they reduce friction. If they become a second job, they're fired.",
   "Pretty is nice. Useful pays better.",
@@ -236,7 +241,7 @@ export const articles = [
   {
     title: "AI Agents Are Only Cool If They Actually Do Something",
     category: "AI",
-    excerpt: "A bot that needs constant babysitting is not an employee. It's a Tamagotchi with API access.",
+    excerpt: "A bot that needs constant babysitting isn't an employee. It's a Tamagotchi with API access.",
     readTime: "6 min",
   },
   {
@@ -248,7 +253,7 @@ export const articles = [
   {
     title: "Contractors Keep Buying Marketing They Don't Understand",
     category: "Marketing",
-    excerpt: "Confusion is expensive. If you cannot explain what your marketing is doing, you probably cannot tell if it is working.",
+    excerpt: "Confusion is expensive. If you can't explain what your marketing is doing, you probably can't tell if it's working.",
     readTime: "5 min",
   },
   {
